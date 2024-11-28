@@ -11,6 +11,12 @@
 npm-debug.log
 yarn-error.log
 
+# Ajout supplémentaire
+/node_modules/
+/dist/
+/.env
+*.log
+
 # IDEs and editors
 .idea/
 .project
