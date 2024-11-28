@@ -1,7 +1,7 @@
-<div>
+<div class="container mt-5">
     <h2>Gestion des Utilisateurs</h2>
-    <button (click)="createUtilisateur()">Ajouter un utilisateur</button>
-    <table>
+    <button class="btn btn-primary mb-3" (click)="createUtilisateur()">Ajouter un utilisateur</button>
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th>ID</th>
@@ -18,8 +18,8 @@
           <td>{{ utilisateur.email }}</td>
           <td>{{ utilisateur.role }}</td>
           <td>
-            <button (click)="editUtilisateur(utilisateur)">Modifier</button>
-            <button (click)="deleteUtilisateur(utilisateur.id)">Supprimer</button>
+            <button class="btn btn-warning btn-sm me-2" (click)="editUtilisateur(utilisateur)">Modifier</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteUtilisateur(utilisateur.id)">Supprimer</button>
           </td>
         </tr>
       </tbody>

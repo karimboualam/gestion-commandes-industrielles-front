@@ -1,19 +1,19 @@
-<div>
+<div class="container mt-5">
     <h2>Inscription</h2>
-    <form (ngSubmit)="onRegister()">
-      <div>
-        <label>Nom :</label>
-        <input type="text" [(ngModel)]="nom" name="nom" required />
+    <form (ngSubmit)="onRegister()" class="mt-4">
+      <div class="mb-3">
+        <label for="nom" class="form-label">Nom :</label>
+        <input type="text" [(ngModel)]="nom" name="nom" class="form-control" id="nom" required />
       </div>
-      <div>
-        <label>Email :</label>
-        <input type="email" [(ngModel)]="email" name="email" required />
+      <div class="mb-3">
+        <label for="email" class="form-label">Email :</label>
+        <input type="email" [(ngModel)]="email" name="email" class="form-control" id="email" required />
       </div>
-      <div>
-        <label>Mot de passe :</label>
-        <input type="password" [(ngModel)]="password" name="password" required />
+      <div class="mb-3">
+        <label for="password" class="form-label">Mot de passe :</label>
+        <input type="password" [(ngModel)]="password" name="password" class="form-control" id="password" required />
       </div>
-      <button type="submit">S'inscrire</button>
+      <button type="submit" class="btn btn-success">S'inscrire</button>
     </form>
   </div>
   

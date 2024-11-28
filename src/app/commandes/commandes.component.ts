@@ -25,4 +25,17 @@ export class CommandesComponent {
       }
     );
   }
+
+  createCommande() {
+    console.log('Créer une nouvelle commande');
+  }
+  
+  editCommande(commande: any) {
+    console.log('Modifier commande :', commande);
+  }
+  
+  deleteCommande(commandeId: number) {
+    console.log('Supprimer commande avec ID :', commandeId);
+  }
+  
 }

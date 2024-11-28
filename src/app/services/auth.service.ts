@@ -14,9 +14,13 @@ export class AuthService {
   login(email: string, password: string): Observable<any> {
     return this.http.post(`${this.baseUrl}/login`, { email, password });
   }
-
   // Méthode pour l'inscription
   register(nom: string, email: string, password: string): Observable<any> {
     return this.http.post(`${this.baseUrl}/register`, { nom, email, password });
+  }
+   // Méthode pour la déconnexion
+   logout() {
+    localStorage.removeItem('token'); // Supprime le token JWT
+    window.location.href = '/auth/login'; // Redirige l'utilisateur vers la page de connexion
   }
 }
