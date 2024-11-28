@@ -1,0 +1,26 @@
+<div>
+    <h2>Gestion des Commandes</h2>
+    <button (click)="createCommande()">Ajouter une commande</button>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let commande of commandes">
+          <td>{{ commande.id }}</td>
+          <td>{{ commande.description }}</td>
+          <td>{{ commande.date }}</td>
+          <td>
+            <button (click)="editCommande(commande)">Modifier</button>
+            <button (click)="deleteCommande(commande.id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
