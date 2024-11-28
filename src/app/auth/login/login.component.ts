@@ -19,20 +19,29 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {} // Injection de Router
 
   onLogin() {
+    console.log('Tentative de connexion avec :', this.email, this.password);
     this.authService.login(this.email, this.password).subscribe(
       (response: any) => {
-        console.log('Utilisateur connecté', response);
+        console.log('Réponse reçue du backend :', response);
+  
         // Stockez le token dans le localStorage
         localStorage.setItem('token', response.token);
-        // Redirection vers les commandes
-        this.router.navigate(['/commandes']);
-        
+  
+        // Utilisez le rôle pour rediriger
+        const role = response.role;
+        if (role === 'ADMIN') {
+          this.router.navigate(['/admin/commandes']);
+        } else if (role === 'USER') {
+          this.router.navigate(['/user/commandes']);
+        }
       },
       (error) => {
-        console.error('Erreur de connexion', error);
+        console.error('Erreur de connexion :', error);
+        alert('Échec de la connexion. Vérifiez vos informations.');
       }
     );
   }
+  
   
   
 }

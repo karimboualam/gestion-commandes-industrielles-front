@@ -1,19 +1,22 @@
-<div class="container mt-5">
-    <h2>Inscription</h2>
-    <form (ngSubmit)="onRegister()" class="mt-4">
-      <div class="mb-3">
-        <label for="nom" class="form-label">Nom :</label>
-        <input type="text" [(ngModel)]="nom" name="nom" class="form-control" id="nom" required />
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email :</label>
-        <input type="email" [(ngModel)]="email" name="email" class="form-control" id="email" required />
-      </div>
-      <div class="mb-3">
-        <label for="password" class="form-label">Mot de passe :</label>
-        <input type="password" [(ngModel)]="password" name="password" class="form-control" id="password" required />
-      </div>
-      <button type="submit" class="btn btn-success">S'inscrire</button>
-    </form>
+<form (ngSubmit)="onRegister()">
+  <div>
+    <label for="nom">Nom :</label>
+    <input id="nom" [(ngModel)]="nom" name="nom" required />
   </div>
-  
+  <div>
+    <label for="email">Email :</label>
+    <input id="email" [(ngModel)]="email" name="email" type="email" required />
+  </div>
+  <div>
+    <label for="password">Mot de passe :</label>
+    <input id="password" [(ngModel)]="password" name="password" type="password" required />
+  </div>
+  <div>
+    <label for="role">Rôle :</label>
+    <select id="role" [(ngModel)]="isAdmin" name="role">
+      <option [value]="false">Utilisateur</option>
+      <option [value]="true">Administrateur</option>
+    </select>
+  </div>
+  <button type="submit">S'inscrire</button>
+</form>
