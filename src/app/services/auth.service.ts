@@ -27,6 +27,7 @@ export class AuthService {
   // Méthode pour la déconnexion
   logout() {
     localStorage.removeItem('token'); // Supprime le token JWT
+    localStorage.removeItem('role');
     window.location.href = '/auth/login'; // Redirige l'utilisateur vers la page de connexion
   }
 
@@ -42,5 +43,23 @@ export class AuthService {
         console.error('Erreur lors du décodage du token:', error);
         return ''; // Retourner une chaîne vide en cas d'erreur
       }
+    } // Vérifie si l'utilisateur est connecté
+    isLoggedIn(): boolean {
+      return !!localStorage.getItem('token');
     }
+  
+    // Récupère le rôle de l'utilisateur à partir du token JWT
+    getUserRole(): string | null {
+      const token = localStorage.getItem('token');
+      if (!token) return null;
+  
+      try {
+        const payload = JSON.parse(atob(token.split('.')[1])); // Décoder la charge utile en base64
+        return payload.role; // Retourne le rôle
+      } catch {
+        return null;
+      }
+    }
+
+
 }

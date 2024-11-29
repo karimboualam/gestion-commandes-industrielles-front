@@ -31,8 +31,12 @@ export class LoginComponent {
         const role = response.role;
         if (role === 'ADMIN') {
           this.router.navigate(['/admin/commandes']);
+        //  this.router.navigate(['/admin-commands']);
+
         } else if (role === 'USER') {
           this.router.navigate(['/user/commandes']);
+         // this.router.navigate(['/user-commands']);
+
         }
       },
       (error) => {

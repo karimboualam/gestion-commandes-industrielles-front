@@ -1,21 +1,37 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="assets/logo.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+      <img
+        src="assets/logo.png"
+        alt="Logo"
+        width="30"
+        height="30"
+        class="d-inline-block align-text-top"
+      />
       Gestion Commandes
     </a>
     <div class="collapse navbar-collapse justify-content-center">
-      <span class="navbar-text">
-        Gestion des Commandes
-      </span>
+      <span class="navbar-text">Gestion des Commandes</span>
     </div>
-    <div class="dropdown">
-      <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="assets/logo.png" alt="Profile" width="30" height="30" class="rounded-circle">
+    <div *ngIf="authService.isLoggedIn()" class="dropdown">
+      <button
+        class="btn btn-outline-secondary dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton1"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <img
+          src="assets/logo.png"
+          alt="Profile"
+          width="30"
+          height="30"
+          class="rounded-circle"
+        />
       </button>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="/profile">Paramètres</a></li>
-        <li><button class="dropdown-item" (click)="onLogout()">Se déconnecter</button></li> <!-- Bouton de déconnexion -->
+        <li><a class="dropdown-item" routerLink="/profile">Paramètres</a></li>
+        <li><button class="dropdown-item" (click)="onLogout()">Se déconnecter</button></li>
       </ul>
     </div>
   </div>

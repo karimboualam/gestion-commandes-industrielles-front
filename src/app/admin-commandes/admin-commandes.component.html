@@ -1,1 +1,27 @@
-<p>admin-commandes works!</p>
+<div class="container">
+    <h1>Gestion des Commandes (Admin)</h1>
+    <button class="btn btn-primary mb-3" (click)="onAddCommande()">Ajouter une Commande</button>
+    
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nom de la Commande</th>
+          <th>Utilisateur</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let commande of commandes">
+          <td>{{ commande.id }}</td>
+          <td>{{ commande.nom }}</td>
+          <td>{{ commande.utilisateur.nom }}</td>
+          <td>
+            <button class="btn btn-warning btn-sm" (click)="onEditCommande(commande)">Modifier</button>
+            <button class="btn btn-danger btn-sm" (click)="onDeleteCommande(commande.id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

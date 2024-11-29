@@ -1,21 +1,24 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { AuthService } from './services/auth.service'; // Chemin vers AuthService
-
+import { Router, RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common'; // Import CommonModule for *ngIf
+import { AuthService } from './services/auth.service'; // Import AuthService
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CommonModule], // Add CommonModule for *ngIf
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'gestion-commandes-industrielles-front';
-  constructor(private authService: AuthService) {}
 
-  // Appelle la méthode de déconnexion
+  // Make authService public for use in the template
+  constructor(public authService: AuthService, private router: Router) {}
+
+  // Method for logout
   onLogout() {
-    this.authService.logout();
+    this.authService.logout(); // Perform logout
+    this.router.navigate(['/auth/login']); // Redirect to login page
   }
 }
